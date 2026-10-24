@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Python tutoring | Sean Woods</title>
+<title>Python tutoring from Sean Woods | One-to-one online lessons</title>
 <meta name="description" content="Friendly one-to-one Python tutoring online from a sixth former, for ages 11 and up. Every lesson raises money for a School Aid trip to Romania.">
 <meta property="og:title" content="Python tutoring from Sean Woods">
 <meta property="og:description" content="One-to-one online Python lessons for beginners, GCSE and A-level. Proceeds fund a School Aid trip to Romania.">
@@ -101,7 +101,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);font-s
 <div class="hero">
   <div class="wrap">
     <div>
-      <h1>Python made clear, one lesson at a time.</h1>
+      <h1>Python lessons from a student who writes it every week.</h1>
       <p>One-to-one online tutoring for complete beginners, GCSE and A-level. Clear explanations, real projects, no jargon.</p>
       <p><a class="btn" href="#contact">Book a session</a><a class="btn alt" href="#lessons">See what I teach</a></p>
     </div>
@@ -145,6 +145,7 @@ language = <span class="s">"Python"</span>
         <li>We meet on video. A parent or guardian is welcome to sit in.</li>
         <li>I send a short summary and a practice task afterwards.</li>
       </ol>
+      <p class="note">Sessions last one hour. I reply to messages as soon as I can, usually within a day or two.</p>
     </div>
   </div>
 </section>
@@ -159,8 +160,9 @@ language = <span class="s">"Python"</span>
     <div>
       <h2>Why I’m tutoring</h2>
       <p>I’m going to Romania in June 2027 with School Aid to support orphans. I need to raise £1,000, and every lesson gets me closer.</p>
+      <p>Parents are welcome to ask me for details of the trip before booking.</p>
       <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0" aria-label="Fundraising progress"><span id="bar"></span></div>
-      <p class="note" id="raised-text">£0 of £1,000 raised. I’ll update this as lessons happen.</p>
+      <p class="note" id="raised-text">Every lesson counts towards my £1,000 goal.</p>
     </div>
   </div>
 </section>
@@ -169,10 +171,10 @@ language = <span class="s">"Python"</span>
   <div class="wrap">
     <h2>Book a session or ask a question</h2>
     <p>If you’re under 18, please ask a parent or guardian to send this message or be copied in.</p>
-    <form name="contact" method="POST" action="https://formspree.io/f/meaaoqoo">
+    <form name="contact" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
       <p class="hp" aria-hidden="true"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
       <label>Your name <input type="text" name="name" required autocomplete="name"></label>
-      <label>Email/Phone Number <input type="text" name="contact" required autocomplete="email tel"></label>
+      <label>Parent or guardian email or phone number <input type="text" name="contact" required autocomplete="email tel" minlength="7"></label>
       <label>Level
         <select name="level">
           <option>Complete beginner</option>
@@ -189,7 +191,9 @@ language = <span class="s">"Python"</span>
 </main>
 
 <footer>
-
+  <div class="wrap">
+    <p>Proceeds go towards my School Aid Romania trip. Sessions for under-18s are arranged through a parent or guardian.</p>
+  </div>
 </footer>
 
 <script>
@@ -198,9 +202,10 @@ var RAISED = 0, GOAL = 1000;
 var pct = Math.min(100, Math.round(RAISED / GOAL * 100));
 document.getElementById('bar').style.width = pct + '%';
 document.querySelector('.progress').setAttribute('aria-valuenow', RAISED);
-document.getElementById('raised-text').textContent =
-  '£' + RAISED.toLocaleString('en-GB') + ' of £' + GOAL.toLocaleString('en-GB') +
-  ' raised. I’ll update this as lessons happen.';
+document.getElementById('raised-text').textContent = RAISED === 0
+  ? 'Every lesson counts towards my £' + GOAL.toLocaleString('en-GB') + ' goal.'
+  : '£' + RAISED.toLocaleString('en-GB') + ' of £' + GOAL.toLocaleString('en-GB') +
+    ' raised. I’ll update this as lessons happen.';
 </script>
 </body>
 </html>
